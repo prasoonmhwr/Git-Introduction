@@ -25,6 +25,81 @@ If you have XCode installed on your MAC then you do not need to do anything, git
 
 ## Basic Git Command
 
+__git init__
+
+> Create an empty Git repository or reinitialize an existing one
+
+`git init`
+
+As mentioned in the blockquote above this command is use to initialize the git repo. So basically you can use it for different scenarios.
+
+- While creating new project
+
+Just type the below command in your terminal/command prompt
+
+`git init project-name  //you can replace project-name with your own project name`
+
+2. Reinitializing the existing project
+
+For this scenario you have to first navigate to your project folder, then just type git init.
+
+```cd project-name 
+git init
+```
+
+__git status__
+
+> Get the working tree status
+
+This command gives the information about the status of working tree compared to git repository. Type the command:
+
+`git status`
+
+and you get information something like below image.
+
+![picture alt](resources/images/status.png "On running git status")
+
+As you can see in the image above, it shows two types of files one is tracked and other is untracked.
+Tracked files are those which git is already aware of and are just modified. Untracked files are those which are newly added and git is not keeping track of it.
+
+One more thing to notice in above image is the line "__Your branch is ahead of origin/master by 1 commit__", this is the summary of the current status of the working tree with respect to git repository.
+
+git add
+
+git commit
+
+basic git flow/first commit, introduce git pull, git push
+
+git clone
+
+adjusting the config with git config
+
+Express commit
+
+git reset
+
+renaming with git mv filename1 filename2
+
+removing file with git rm filename
+
+history
+
+git log
+    git log abbrev-commit
+    git log --online --graph --decorate
+    git log indexM...indexN
+    git log --since="3 days ago"
+    git log -- sample.txt
+    git log --follow -- some.txt
+
+git show
+
+Alias
+    git config --global alias.hist "log --all --graph --decorate --oneline"
+    git hist
+
+adding .gitignore
+
 ## Branching
 
 ## Stashing
