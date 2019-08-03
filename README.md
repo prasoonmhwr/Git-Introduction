@@ -33,17 +33,18 @@ __git init__
 
 As mentioned in the blockquote above this command is use to initialize the git repo. So basically you can use it for different scenarios.
 
-- While creating new project
+__-> While creating new project__
 
 Just type the below command in your terminal/command prompt
 
 `git init project-name  //you can replace project-name with your own project name`
 
-2. Reinitializing the existing project
+__->Reinitializing the existing project__
 
 For this scenario you have to first navigate to your project folder, then just type git init.
 
-```cd project-name 
+```
+cd project-name 
 git init
 ```
 
