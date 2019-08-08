@@ -65,7 +65,27 @@ Tracked files are those which git is already aware of and are just modified. Unt
 
 One more thing to notice in above image is the line "__Your branch is ahead of origin/master by 1 commit__", this is the summary of the current status of the working tree with respect to git repository.
 
-git add
+__git add__
+
+> Adding file contents to index/staging area
+
+This command updates the index using the current content found in the working tree, to prepare the content staged for the next commit. Type the command:
+
+`git add file_path`
+
+Multiple file can be added by giving the filenames comma(,) separated.
+
+`git add file1_path,file2_path`
+
+or you can add all files together by using dot(.) in place of filename as:
+
+`git add .`
+
+So as you can see the files which were previously coming as not staged and/or untracked files in red color, are now coming as staged and ready to commit in green color.
+
+What happens when we run __git add__ is ,the "index" holds the snapshot of the content of working tree, this snapshot is taken as the content for the next commit.
+
+Before running the commit command you can run this command as many times as you want , but after running the commit command if you run this command than content/changes will be staged for the next commit.
 
 git commit
 
