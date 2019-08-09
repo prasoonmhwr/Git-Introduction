@@ -47,6 +47,7 @@ For this scenario you have to first navigate to your project folder, then just t
 cd project-name 
 git init
 ```
+Once you run this command a project folder is setup which contains __.git__ folder this folder keeps the track of the working tree's changes/activities.
 
 __git status__
 
@@ -81,13 +82,25 @@ or you can add all files together by using dot(.) in place of filename as:
 
 `git add .`
 
-So as you can see the files which were previously coming as not staged and/or untracked files in red color, are now coming as staged and ready to commit in green color.
+![picture alt](resources/images/add.png "After running git add")
+
+So if you run `git status` now you will see the files which were previously coming as not staged and/or untracked files in red color, are now coming as staged and ready to commit in green color.
 
 What happens when we run __git add__ is ,the "index" holds the snapshot of the content of working tree, this snapshot is taken as the content for the next commit.
 
 Before running the commit command you can run this command as many times as you want , but after running the commit command if you run this command than content/changes will be staged for the next commit.
 
-git commit
+__git commit__
+
+> Record changes to the repository(.git folder) but still in the local
+
+This command creates a new commit containing the current contents of the index(the snapshot) and the given log message describing the changes. Just type the command:
+
+`git commit -m "Log Message explaining the change"`
+
+if you miss out giving the log message and just type `git commit` then git will prompt you to add a log message in the default editor configured with git. Now if you run `git status`:
+
+You can see that now our working directory is clean, our changes sits in .git folder which get created at time of __git init__ . Still our changes are in the local , the reason is explained in the next topic below.
 
 basic git flow/first commit, introduce git pull, git push
 
