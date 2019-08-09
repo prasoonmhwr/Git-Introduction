@@ -100,6 +100,8 @@ This command creates a new commit containing the current contents of the index(t
 
 if you miss out giving the log message and just type `git commit` then git will prompt you to add a log message in the default editor configured with git. Now if you run `git status`:
 
+![picture alt](resources/images/commit.png "After commiting your changes")
+
 You can see that now our working directory is clean, our changes sits in .git folder which get created at time of __git init__ . Still our changes are in the local , the reason is explained in the next topic below.
 
 basic git flow/first commit, introduce git pull, git push
