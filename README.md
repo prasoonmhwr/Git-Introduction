@@ -104,7 +104,16 @@ if you miss out giving the log message and just type `git commit` then git will 
 
 You can see that now our working directory is clean, our changes sits in .git folder which get created at time of __git init__ . Still our changes are in the local , the reason is explained in the next topic below.
 
-basic git flow/first commit, introduce git pull, git push
+__Basic git flow__
+
+So let us now see the flow in a pictorial representation
+
+![picture alt](resources/images/git_flow.png "Git Flow diagram")
+
+As you can see in the diagram above , whatever command we have used so far keeps our changes in our local. In order to push your changes to remote repository you need to use __git push__ we will see this command shortly before that we have to see how to configure a remote repo in our local.
+
+
+/first commit, introduce git pull, git push
 
 git clone
 
