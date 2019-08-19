@@ -86,7 +86,7 @@ or you can add all files together by using dot(.) in place of filename as:
 
 So if you run `git status` now you will see the files which were previously coming as not staged and/or untracked files in red color, are now coming as staged and ready to commit in green color.
 
-What happens when we run __git add__ is ,the "index" holds the snapshot of the content of working tree, this snapshot is taken as the content for the next commit.
+What happens when we run `git add` is ,the "index" holds the snapshot of the content of working tree, this snapshot is taken as the content for the next commit.
 
 Before running the commit command you can run this command as many times as you want , but after running the commit command if you run this command than content/changes will be staged for the next commit.
 
@@ -102,7 +102,9 @@ if you miss out giving the log message and just type `git commit` then git will 
 
 ![picture alt](resources/images/commit.png "After commiting your changes")
 
-You can see that now our working directory is clean, our changes sits in .git folder which get created at time of __git init__ . Still our changes are in the local , the reason is explained in the next topic below.
+You can see that now our working directory is clean, our changes sits in .git folder which get created at time of `git init` . Still our changes are in the local , the reason is explained in the next topic below.
+
+Another way of commiting is `git commit -am "log message"`, this technique is called express commit using this you do not have to run `git add` 
 
 __Basic git flow__
 
@@ -110,16 +112,31 @@ So let us now see the flow in a pictorial representation
 
 ![picture alt](resources/images/git_flow.png "Git Flow diagram")
 
-As you can see in the diagram above , whatever command we have used so far keeps our changes in our local. In order to push your changes to remote repository you need to use __git push__ we will see this command shortly before that we have to see how to configure a remote repo in our local.
+As you can see in the diagram above , whatever command we have used so far keeps our changes in our local. In order to push your changes to remote repository you need to use `git push` we will see this command shortly before that we have to see how to configure a remote repo in our local.
 
+__git clone__
 
-/first commit, introduce git pull, git push
+> Cloning an existing repository into your local
 
-git clone
+This command helps us to clone the remote repo into our local, creates remote-tracking branches for each branch in the cloned repository (visible using `git branch --remotes`), and creates and checks out an initial branch that is forked from the cloned repository’s currently active branch.
+
+After the clone, a plain `git fetch` without arguments will update all the remote-tracking branches, and a `git pull` without arguments will in addition merge the remote master branch into the current master branch.
+
+> git pull - Fetching from and integrating with another repository or a local branch
+
+Now to complete the git flow as mentioned we need to push to remote repo, in order to do that after running commit command you need to run `git push`.
+
+__git push__
+
+> Update remote refs along with associated objects
+
+In technical terms it updates remote refs using local refs, while sending objects necessary to complete the given refs. In layman langauge it updates the repo with your changes.
+
+![picture alt](resources/images/ "Git push")
 
 adjusting the config with git config
 
-Express commit
+
 
 git reset
 
