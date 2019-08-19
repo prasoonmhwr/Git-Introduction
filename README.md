@@ -134,8 +134,8 @@ In technical terms it updates remote refs using local refs, while sending object
 
 ![picture alt](resources/images/ "Git push")
 
-adjusting the config with git config
 
+adjusting the config with git config
 
 
 git reset
