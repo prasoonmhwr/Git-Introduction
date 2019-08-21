@@ -104,7 +104,9 @@ if you miss out giving the log message and just type `git commit` then git will 
 
 You can see that now our working directory is clean, our changes sits in .git folder which get created at time of `git init` . Still our changes are in the local , the reason is explained in the next topic below.
 
-Another way of commiting is `git commit -am "log message"`, this technique is called express commit using this you do not have to run `git add` 
+Another way of commiting is `git commit -am "log message"`, this technique is called __express commit__ using this you do not have to run `git add`. 
+
+__git reset__
 
 __Basic git flow__
 
@@ -126,6 +128,7 @@ After the clone, a plain `git fetch` without arguments will update all the remot
 
 Now to complete the git flow as mentioned we need to push to remote repo, in order to do that after running commit command you need to run `git push`.
 
+---
 __git push__
 
 > Update remote refs along with associated objects
@@ -134,11 +137,12 @@ In technical terms it updates remote refs using local refs, while sending object
 
 ![picture alt](resources/images/ "Git push")
 
+Now while cloning you will be prompted to give you credentials for that repo. While pushing your changes git by default takes the email you provided in your credentials and save it as you email and name. In order to change that you can adjust the config file with `git config`, all you have to do is type the command:
 
-adjusting the config with git config
+`git config --global user.name "Your Name"`
+`git config --global user.email youremail@example.com`
 
-
-git reset
+this command can be used for configuring various other thing like defaut editor, merge tool,diff tool, etc. But that will be covered in this article.
 
 renaming with git mv filename1 filename2
 
