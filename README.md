@@ -144,15 +144,31 @@ Now while cloning you will be prompted to give you credentials for that repo. Wh
 
 this command can be used for configuring various other thing like defaut editor, merge tool,diff tool, etc. But that will be covered in this article.
 
-renaming with git mv filename1 filename2
+__Renaming a file__
 
-removing file with git rm filename
+It is always possible that sometime we misspell the file name, or want to rename for some other reasons, this can be done using the git command below:
 
-history
+`git mv filename1 filename2`
+
+![picture alt](resources/images/ "Renaming with git")
+
+Now some of you might be wondering that we can always rename it using our operating system(Right click then rename), that is also fine but there is a small difference how git sees it. As you can see in the image above after you run the git command to rename, git consider it as a rename, but as you see in the image below when you rename using OS git consider it as deletion of file with old name and creation of new file with new name.
+
+![picture alt](resources/images/ "Renaming through OS")
+
+__Removing a file__ 
+
+Unlike renaming, removing a file is same eihter using git or using OS. So to remove a file through git you can use the following command:
+
+`git rm filename`
+
+![picture alt](resources/images/ "Removing a file")
+
+__History__
 
 git log
     git log abbrev-commit
-    git log --online --graph --decorate
+    git log --oneline --graph --decorate
     git log indexM...indexN
     git log --since="3 days ago"
     git log -- sample.txt
