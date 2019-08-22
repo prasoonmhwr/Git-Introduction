@@ -17,7 +17,7 @@ Git installation is pretty straight forward.
 
 __On Windows__
 
-You just have to download the installer from [git-scm.com](https://git-scm.com/ "git-scm.com"), and then run it, thats it. Git will be installed.
+You just have to download the installer from [git-scm.com](https://git-scm.com/downloads "git-scm.com"), and then run it, thats it. Git will be installed.
 
 __On Mac OS__
 
@@ -190,7 +190,7 @@ Now if you type `git hist` then it will return the same result as `git log --all
 
 __Adding .gitignore__
 
-One last thing before we move to the next section, we can also control which should not be pushed or committed, files like log files or system specific configurational files and any other file which we want in the project but not in the repo, this can be achieved by adding __.gitignore__ file in your main project folder and inside this file we can specify which file we want to skip from committing, see the image below for an example:
+One last thing before we move to the next section, we can also control which file should not be pushed or committed, files like log files or system specific configurational files and any other file which we want in the project but not in the repo, this can be achieved by adding __.gitignore__ file in your main project folder and inside this file we can specify which file we want to skip from committing, see the image below for an example:
 
 ![picture alt](resources/images/ "Adding .gitignore file")
 
