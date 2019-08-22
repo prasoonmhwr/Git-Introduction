@@ -166,7 +166,7 @@ Unlike renaming, removing a file is same eihter using git or using OS. So to rem
 
 __History__
 
-git log
+  __git log__
     git log abbrev-commit
     git log --oneline --graph --decorate
     git log indexM...indexN
@@ -174,13 +174,25 @@ git log
     git log -- sample.txt
     git log --follow -- some.txt
 
-git show
+  __git show__
 
-Alias
-    git config --global alias.hist "log --all --graph --decorate --oneline"
-    git hist
+  > Shows one or more objects (blobs, trees, tags and commits).
 
-adding .gitignore
+__Alias__
+
+Now lets say we want setup an alias(a short or different name for same work) for an very long command which we get bored of typing again and again. Let take an example from preivous command `git log --all -graph --decorate --oneline` typing this command again and again could be really frustrating and time consuimg so we can use an alias for this command for this we can use the command:
+
+`git config --global alias.hist "log --all --graph --decorate --oneline"`
+
+Now if you type `git hist` then it will return the same result as `git log --all -graph --decorate --oneline`.
+
+![picture alt](resources/images/ "aliasing a command")
+
+__Adding .gitignore__
+
+One last thing before we move to the next section, we can also control which should not be pushed or committed, files like log files or system specific configurational files and any other file which we want in the project but not in the repo, this can be achieved by adding __.gitignore__ file in your main project folder and inside this file we can specify which file we want to skip from committing, see the image below for an example:
+
+![picture alt](resources/images/ "Adding .gitignore file")
 
 ## Branching
 
