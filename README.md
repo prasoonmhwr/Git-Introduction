@@ -114,7 +114,7 @@ Some times we accidently commit our changes or we do not want those changes , so
 
 if you the run the `git reset HEAD test.txt` it will be backed out to your working directory as shown below:
 
-![picture alt](resources/images/rest.png "Rest test file commit/add")
+![picture alt](resources/images/reset.png "Rest test file commit/add")
 
 now if you dont want the changes at all, all you have to do is run `git checkout -- test.txt`, this will revert the new changes.
 
@@ -138,7 +138,6 @@ After the clone, a plain `git fetch` without arguments will update all the remot
 
 Now to complete the git flow as mentioned we need to push to remote repo, in order to do that after running commit command you need to run `git push`.
 
----
 __git push__
 
 > Update remote refs along with associated objects
