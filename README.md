@@ -159,11 +159,11 @@ It is always possible that sometime we misspell the file name, or want to rename
 
 `git mv filename1 filename2`
 
-![picture alt](resources/images/ "Renaming with git")
+![picture alt](resources/images/renameGit.png "Renaming with git")
 
 Now some of you might be wondering that we can always rename it using our operating system(Right click then rename), that is also fine but there is a small difference how git sees it. As you can see in the image above after you run the git command to rename, git consider it as a rename, but as you see in the image below when you rename using OS git consider it as deletion of file with old name and creation of new file with new name.
 
-![picture alt](resources/images/ "Renaming through OS")
+![picture alt](resources/images/renameOS.png "Renaming through OS")
 
 __Removing a file__ 
 
