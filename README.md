@@ -136,22 +136,22 @@ After the clone, a plain `git fetch` without arguments will update all the remot
 
 > git pull - Fetching from and integrating with another repository or a local branch
 
+Now while cloning you will be prompted to give you credentials for that repo. While pushing your changes, git by default takes the email you provided in your credentials and save it as you email and name. In order to change that you can adjust the config file with `git config`, all you have to do is type the command:
+
+`git config --global user.name "Your Name"`
+`git config --global user.email youremail@example.com`
+
+this command can be used for configuring various other thing like defaut editor, merge tool,diff tool, etc. But that will be covered in this article.
+
 Now to complete the git flow as mentioned we need to push to remote repo, in order to do that after running commit command you need to run `git push`.
 
 __git push__
 
 > Update remote refs along with associated objects
 
-In technical terms it updates remote refs using local refs, while sending objects necessary to complete the given refs. In layman langauge it updates the repo with your changes.
+In technical terms it updates remote refs using local refs, while sending objects necessary to complete the given refs. In layman langauge it updates the repo with your changes. After commiting your changes into .git folder in local just type `git push`.
 
 ![picture alt](resources/images/ "Git push")
-
-Now while cloning you will be prompted to give you credentials for that repo. While pushing your changes git by default takes the email you provided in your credentials and save it as you email and name. In order to change that you can adjust the config file with `git config`, all you have to do is type the command:
-
-`git config --global user.name "Your Name"`
-`git config --global user.email youremail@example.com`
-
-this command can be used for configuring various other thing like defaut editor, merge tool,diff tool, etc. But that will be covered in this article.
 
 __Renaming a file__
 
@@ -167,11 +167,10 @@ Now some of you might be wondering that we can always rename it using our operat
 
 __Removing a file__ 
 
-Unlike renaming, removing a file is same eihter using git or using OS. So to remove a file through git you can use the following command:
+Unlike renaming, removing a file is same either using git or using OS. So to remove a file through git you can use the following command:
 
 `git rm filename`
 
-![picture alt](resources/images/ "Removing a file")
 
 __History__
 
