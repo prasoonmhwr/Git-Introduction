@@ -104,7 +104,7 @@ if you miss out giving the log message and just type `git commit` then git will 
 
 You can see that now our working directory is clean, our changes sits in .git folder which get created at time of `git init` . Still our changes are in the local , the reason is explained in the next topic below.
 
-Another way of commiting is `git commit -am "log message"`, this technique is called __express commit__ using this you do not have to run `git add`. 
+Another way of commiting is `git commit -am "log message"`, this technique is called __express commit__ using this you do not have to run `git add` but this only works for modified file, not for new file or untracked file, fot that you have to use git add. 
 
 __Backing Out Changes__
 
@@ -151,8 +151,6 @@ __git push__
 
 In technical terms it updates remote refs using local refs, while sending objects necessary to complete the given refs. In layman langauge it updates the repo with your changes. After commiting your changes into .git folder in local just type `git push`.
 
-![picture alt](resources/images/ "Git push")
-
 __Renaming a file__
 
 It is always possible that sometime we misspell the file name, or want to rename for some other reasons, this can be done using the git command below:
@@ -171,20 +169,65 @@ Unlike renaming, removing a file is same either using git or using OS. So to rem
 
 `git rm filename`
 
-
 __History__
 
-  __git log__
-    git log abbrev-commit
-    git log --oneline --graph --decorate
-    git log indexM...indexN
-    git log --since="3 days ago"
-    git log -- sample.txt
-    git log --follow -- some.txt
+> As the name suggest we will see how we can check our commit history/logs.
 
-  __git show__
+To start with just type `git log` and you see the logs of you commit in reverse chronological order, that means the top starts with last commit and we work backward in time as we go down.
 
-  > Shows one or more objects (blobs, trees, tags and commits).
+![picture alt](resources/images/log.png "checking Log")
+
+We can various other options to change the view of the log some of them are
+
+`git log --abbrev-commit`
+
+![picture alt](resources/images/abbrevlog.png "Abbrev log")
+
+as you can see this will shorten the commit id, typically you need only 7 unique characters to identify your commit. The number of character increases as number of commits increses in your project.
+    
+`git log --oneline --graph --decorate`
+
+![picture alt](resources/images/onelinelog.png "Online log")
+
+Here --oneline will compress the entries in one line, --graph will provide the ASCII graph depicting the branching graph, --decorate will the labels or tags or anything which annotates our commits.
+
+Another way we can see logs is using the commit number range, lets say from the image above we take c5eab45 to 6b89934, for that we type
+
+`git log c5eab45...6b89934`
+
+and as you can see in the image below it will show all commit between that range.
+
+![picture alt](resources/images/rangelog.png "Range log")
+
+Another option that we coould use with git log command is date base searching, so lets type
+
+`git log --since="3 days ago"`
+
+this will give log of commits happened in last 3 days. So consider you want to check log of a specific file for that run
+
+`git log -- filename`
+
+this will show all the commits having this file. Similarly if want to know the rename history of a specific file then type
+    
+`git log --follow -- filename`
+
+here --follow gives the history of renames this file has gone through. You can refer to below image for quick example.
+
+![picture alt](resources/images/followlog.png "follow log")
+
+and finally
+
+`git show`
+
+> Shows one or more objects (blobs, trees, tags and commits).
+
+this command show the information about a specific commit, lets say we want to check about commit number __cdde99a61ffb19e962a80e7a9e10182eb692b84d__ , type 
+
+`git show cdde99a61ffb19e962a80e7a9e10182eb692b84d`
+
+![picture alt](resources/images/showlog.png "show log")
+
+This will give you all the information about that specific commit like author, date, what changes were made, etc.
 
 __Alias__
 
