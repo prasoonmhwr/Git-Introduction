@@ -106,7 +106,17 @@ You can see that now our working directory is clean, our changes sits in .git fo
 
 Another way of commiting is `git commit -am "log message"`, this technique is called __express commit__ using this you do not have to run `git add`. 
 
-__git reset__
+__Backing Out Changes__
+
+Some times we accidently commit our changes or we do not want those changes , so we can reset our commit using command `git reset HEAD filename`. Let's understand this using an example, first we will add a test file named 'test.txt' using `git add .`, if we now run `git status` it will show our file in green as it is added:
+
+![picture alt](resources/images/testAdd.png "Added test file")
+
+if you the run the `git reset HEAD test.txt` it will be backed out to your working directory as shown below:
+
+![picture alt](resources/images/rest.png "Rest test file commit/add")
+
+now if you dont want the changes at all, all you have to do is run `git checkout -- test.txt`, this will revert the new changes.
 
 __Basic git flow__
 
