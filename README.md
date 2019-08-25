@@ -245,9 +245,48 @@ One last thing before we move to the next section, we can also control which fil
 
 ## Branching
 
+Branches are just labels
+git branch -a #to list all branch
+git branch newbranch
+git checkout newbranch #to swithc to new branch
+git checkout -b newbranch #one line statement above to command
+git branch -m oldbranchname newbranchname #renaming a branch
+git branch -d newbranch #to delete a branch
+
+merging 
+
+Before merging git diff master feature branch will show the difference between the two branch
+
+git merge feature_branch type while in master branch or the branch you want to merge this branch into.
+
+It then tells me that it was a fast-forwarded merge, and the file involved with this
+
+Since this was a Fast-forwarded merge,effectively what just happened was Git just placed all the commits on the master branch, as if we never branched away. Fast-forwarding is only really possible when there are no changes being made on the target branch, which is what we just did. We branched away, we did some work, and then we came back and then merged into master; we didn't do any additional work on master before doing the merge.
+
+git merge feature-branch --no-ff
+git merge branch_name -m "merge message"
+
+git log --oneline --graph --decorate
+
+git branch -d feature_branch #will still see the branching but will not be able to see the label of the branch thats all. 
+
+merge conflict can happen if two branches which you are trying to merge having changes in the same area of the same file. Git tries to do autmatic merge but fails becasue of the conflict, so we have to manually solve the conflicts.
+
+While you are resolving the conflicts you will be in Merging state, once you resolve the conflict you ahve to commit your changes using command git commit -m "any message to for log", and you will be back to normal state.
+
+during resolving the merge, Git will save off an original copy of the merge conflicts as  ".orig" files, so that if something got lost you can revert those changes
 ## Stashing
 
 ## Tagging
 
 ## Rebasing
+
+git rebase master
+
+it rewind the feature branch to accomodate the changes in master and then apply the cahnges in feature branch, this helps in fast forward merge.
+
+git rebase --abort #for comming out of rebase state due to rebase conflict.
+
+while in the rebase conflict state, after solving the conflict manually type git add . then git rebase --continue
+git pull --rebase origin master
 
