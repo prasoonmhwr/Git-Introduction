@@ -7,9 +7,10 @@ In a nutshell, Git is a distributed source-control or version-control system whi
 * [Git Installation](#Git-Installation "Goto Git Installation")
 * [Basic Git Command](#Basic-Git-Command "Goto Basic Git Command")
 * [Branching](#Branching "Goto Branching")
+* [Rebasing](#Rebasing "Goto Rebasing")
 * [Stashing](#Stashing "Goto Stashing")
 * [Tagging](#Tagging "Goto Tagging")
-* [Rebasing](#Rebasing "Goto Rebasing")
+
     
 ## Git Installation
 
@@ -245,48 +246,117 @@ One last thing before we move to the next section, we can also control which fil
 
 ## Branching
 
-Branches are just labels
-git branch -a #to list all branch
-git branch newbranch
-git checkout newbranch #to swithc to new branch
-git checkout -b newbranch #one line statement above to command
-git branch -m oldbranchname newbranchname #renaming a branch
-git branch -d newbranch #to delete a branch
+> List, create, or delete branches
 
-merging 
+Branching is most common technique used in projects to maintain separate code for production , development,new feature and many other things. Lets start with listing all the branches present in the project.
 
-Before merging git diff master feature branch will show the difference between the two branch
+`git branch -a`
 
-git merge feature_branch type while in master branch or the branch you want to merge this branch into.
+This command will list all branches present in both local and remote repo. As you can see below in the image both local and origin have only master branch and as we are on master branch so it is marked by asterisk and highlighted with green color.
 
-It then tells me that it was a fast-forwarded merge, and the file involved with this
+![picture alt](resources/images/ "Listing branches")
 
-Since this was a Fast-forwarded merge,effectively what just happened was Git just placed all the commits on the master branch, as if we never branched away. Fast-forwarding is only really possible when there are no changes being made on the target branch, which is what we just did. We branched away, we did some work, and then we came back and then merged into master; we didn't do any additional work on master before doing the merge.
+Now lets create a new branch using command, before that you can take a look at the diagram below which depicts what branching is:
 
-git merge feature-branch --no-ff
-git merge branch_name -m "merge message"
+![picture alt](resources/images/ "flow diagram for branching")
 
-git log --oneline --graph --decorate
 
-git branch -d feature_branch #will still see the branching but will not be able to see the label of the branch thats all. 
+`git branch newbranch` 
 
-merge conflict can happen if two branches which you are trying to merge having changes in the same area of the same file. Git tries to do autmatic merge but fails becasue of the conflict, so we have to manually solve the conflicts.
+this will create the branch __newbranch__ , but still we are pointing to the master branch, we need to switch to newbranch, for that type command:
 
-While you are resolving the conflicts you will be in Merging state, once you resolve the conflict you ahve to commit your changes using command git commit -m "any message to for log", and you will be back to normal state.
+`git checkout newbranch`
 
-during resolving the merge, Git will save off an original copy of the merge conflicts as  ".orig" files, so that if something got lost you can revert those changes
+as you can see in the image below we are pointing to the new branch. Now there is also one line command to create new branch and point/checkout to it using the command:
+
+`git checkout -b newbranch` 
+
+![picture alt](resources/images/ "creating and checking out to new branches")
+
+Just like any file name we can also rename any branch using git, just type the command below and the branch __newbranch__ will be renamed to __newbranch_Newname__.
+
+`git branch -m newbranch newbranch_Newname` 
+
+And finally when we are done with our work with that we can delete that branch as:
+
+`git branch -d newbranch_Newname`
+
+__Merging__
+
+> Join two or more development histories together
+
+Once we create a branch, after our work is done we have to merge it into the master branch otherwise the changes in the feature branch wont appear in the master branch.
+
+Before merging lets take a look at one more command `git diff master feature_branch`, this command will show the difference between the two branches, it is a good practise to see the difference before merging as it can prevent from any possbile conflicts.
+
+Lets merge now, so for merging we need to keep one thing in mind that we should be pointing to the branch in which we want to merge our ohter branch. For example if we want to merge __feature_branch__ into __master__ than we first need to checkout to master and then type:
+
+`git merge feature_branch`
+
+This gives us some information like it was a fast-forwarded merge, and what files were involved with this merge.
+
+Since this was a Fast-forwarded merge,effectively what just happened was Git just placed all the commits on the master branch, as if we never branched away. Fast-forwarding is only really possible when there are no changes being made on the target branch, which is what we just did. We branched away, we did some work, and then we came back and then merged into master; we didn't do any additional work on master before doing the merge. Diagram below will make it more clear:
+
+![picture alt](resources/images/ "Fast Forward merge")
+
+We can mention explicitly that we do not want fast-forward merge by adding __--no-ff__ in the merge command, then git will create it as merge commit.
+
+`git merge feature_branch --no-ff`
+
+Image below depicts how it is different from fast-forward merge.
+
+![picture alt](resources/images/ "Non Fast forward concept diagram")
+
+Just like commit command whenever you run merge command git will prompt you for log message using default editor configured with git, you either type the message there or you can mention the message in the command itself using:
+
+`git merge branch_name -m "merge message"`
+
+Now if run `git log --oneline --graph --decorate -all` we can see that .............
+
+While merging some time conflicts can happen if two branches which you are trying to merge having changes in the same area of the same file. Git tries to do autmatically merge but fails becasue of the conflict, so we have to manually solve the conflicts.
+
+![picture alt](resources/images/ "Conflict concept diagram")
+
+There are several tools to resolve the merge conflict like GitKraken, P4merge ,etc. even IDE's like visual Studio code have inbuilt functionality which helps developer to resolve the conflict.
+While you are resolving the conflicts you will be in Merging state, once you resolve the conflict you have to commit your changes using command git commit -m "any message to for log", and you will be back to normal state.
+
+During resolving the merge, Git will save off an original copy of the merge conflicts as  ".orig" files, so that if something got lost you can revert those changes.
+
+Now finally after merging the branch if we no longer require it we can delete it using:
+
+`git branch -d feature_branch`
+ 
+We will still be able to see the branching but will not be able to see the label of the branch thats all when we run `git log --oneline --decorate --graph --all`.
+
+## Rebasing
+
+> Reapply commits on top of another base tip
+
+Rebasing is done if your parent branch is having some changes which are not present in the child branch, so in order to update the changes in child branch as well we first checkout to child branch in this case its __feature_branch__ and then type:
+
+`git rebase master`
+
+What it will do is it will rewind the feature branch to accomodate the changes in master and then apply the changes in feature branch on top of it, this helps in fast forward merge.
+
+![picture alt](resources/images/ "Rebasing concept diagram")
+
+Like merging, during rebasing we can also encounter conflicts and we will be in rebase state, here we have two options:
+
+1. Abort Rebasing
+
+we can abort rebase by using `git rebase --abort`, this command will take us out of rebase state but conflicts will still be there.
+
+2. Solving the conflict and continuing rebasing
+
+While in the rebase conflict state, after solving the conflict manually type `git add .` all your changes will be stagged now , then type `git rebase --continue` this will continue rebasing and once it is completed you will be out of rebasing state.
+
+Finally consider a situation where your remote repo has some changes and local doesn't so here we need rebasing, in this case we use different command, we wil rabase it while pulling as:
+
+`git pull --rebase origin master`
+
 ## Stashing
 
 ## Tagging
 
-## Rebasing
 
-git rebase master
-
-it rewind the feature branch to accomodate the changes in master and then apply the cahnges in feature branch, this helps in fast forward merge.
-
-git rebase --abort #for comming out of rebase state due to rebase conflict.
-
-while in the rebase conflict state, after solving the conflict manually type git add . then git rebase --continue
-git pull --rebase origin master
 
