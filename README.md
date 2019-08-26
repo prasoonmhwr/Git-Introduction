@@ -254,7 +254,7 @@ Branching is most common technique used in projects to maintain separate code fo
 
 This command will list all branches present in both local and remote repo. As you can see below in the image both local and origin have only master branch and as we are on master branch so it is marked by asterisk and highlighted with green color.
 
-![picture alt](resources/images/ "Listing branches")
+![picture alt](resources/images/listbranch.png "Listing branches")
 
 Now lets create a new branch using command, before that you can take a look at the diagram below which depicts what branching is:
 
@@ -267,11 +267,11 @@ this will create the branch __newbranch__ , but still we are pointing to the mas
 
 `git checkout newbranch`
 
-as you can see in the image below we are pointing to the new branch. Now there is also one line command to create new branch and point/checkout to it using the command:
+as you can see in the image below we are pointing to the new branch. There is also one line command to create new branch and point/checkout to it using the command:
 
 `git checkout -b newbranch` 
 
-![picture alt](resources/images/ "creating and checking out to new branches")
+![picture alt](resources/images/newbranchcheckout.png "creating and checking out to new branches")
 
 Just like any file name we can also rename any branch using git, just type the command below and the branch __newbranch__ will be renamed to __newbranch_Newname__.
 
@@ -281,6 +281,8 @@ And finally when we are done with our work with that we can delete that branch a
 
 `git branch -d newbranch_Newname`
 
+and for the obvious reasons you have to point to some other branch before deleting this branch.
+
 __Merging__
 
 > Join two or more development histories together
@@ -289,7 +291,7 @@ Once we create a branch, after our work is done we have to merge it into the mas
 
 Before merging lets take a look at one more command `git diff master feature_branch`, this command will show the difference between the two branches, it is a good practise to see the difference before merging as it can prevent from any possbile conflicts.
 
-Lets merge now, so for merging we need to keep one thing in mind that we should be pointing to the branch in which we want to merge our ohter branch. For example if we want to merge __feature_branch__ into __master__ than we first need to checkout to master and then type:
+Lets merge now, so for merging we need to keep one thing in mind that we should be pointing to the branch in which we want to merge our other branch. For example if we want to merge __feature_branch__ into __master__ than we first need to checkout to master and then type:
 
 `git merge feature_branch`
 
@@ -355,6 +357,9 @@ Finally consider a situation where your remote repo has some changes and local d
 `git pull --rebase origin master`
 
 ## Stashing
+
+git stash
+
 
 ## Tagging
 
