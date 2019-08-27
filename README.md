@@ -314,8 +314,6 @@ Just like commit command whenever you run merge command git will prompt you for 
 
 `git merge branch_name -m "merge message"`
 
-Now if run `git log --oneline --graph --decorate -all` we can see that .............
-
 While merging some time conflicts can happen if two branches which you are trying to merge having changes in the same area of the same file. Git tries to do autmatically merge but fails becasue of the conflict, so we have to manually solve the conflicts.
 
 ![picture alt](resources/images/conflict_merge_draw.png "Conflict concept diagram")
@@ -359,10 +357,47 @@ Finally consider a situation where your remote repo has some changes and local d
 
 ## Stashing
 
-git stash
+> Stash the changes in a dirty working directory away
+
+Consider a situation where you have local changes in working directory which is still under development and you need to fix something urgent in production but you cannot commit your undeveloped changes; simply your working tree isnot clean, so in this case we can use stashing were you will stash your changes to make the working directory clean and then make and commit the changes. For stashing just type:
+
+`git stash`
+
+After you have committed the production changes, you need to get back those stashed changes back to working directory in order to do that, type:
+
+`git stash apply`
+
+and you can continue your development form where you left. Hold on we are not done yet, if you run now `git stash list` which is used to list all the stashes, you can see our last stash as well which we no longer required as we already used it owe can drop it using `git stash drop` this will drop the last stash.
+
+__Stashing untracked files__
+
+Simple __git stash__ command will not stash the untracked file, so either we can move those file to saving area by `git add .` so that git starts tracking and then stash or we can directly use
+
+`git stash -u`
+
+Now previously we used `git stash apply` and `git stash drop` for unstashing and droppping the stash after use, but there is a command which this both action that is `git stash pop`.
+
+__Multiple stash__
+
+git stash save
+
+git stash show stash@{1}
+
+stash@{1} is reflog syntax that will allow us to reference to a specific stash
+
+git stash apply stash@{1}
+
+git stash drop stash@{1}
+
+git stash clear - to clear all statshes
+
+git stash branch branchname
 
 
 ## Tagging
 
 
+Cheers!!
+Happy Learning
 
+> This is just an introduction to git to get you started for more detail you can checkout the book at [git-scm.com/book](https://git-scm.com/book "git-scm.com/book")
