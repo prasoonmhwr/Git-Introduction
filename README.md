@@ -258,8 +258,9 @@ This command will list all branches present in both local and remote repo. As yo
 
 Now lets create a new branch using command, before that you can take a look at the diagram below which depicts what branching is:
 
-![picture alt](resources/images/ "flow diagram for branching")
+![picture alt](resources/images/BranhcingDraw.png "flow diagram for branching")
 
+As you can see in the diagram above the feature branch will have all the code of the master branch upto where it is created.
 
 `git branch newbranch` 
 
@@ -299,7 +300,7 @@ This gives us some information like it was a fast-forwarded merge, and what file
 
 Since this was a Fast-forwarded merge,effectively what just happened was Git just placed all the commits on the master branch, as if we never branched away. Fast-forwarding is only really possible when there are no changes being made on the target branch, which is what we just did. We branched away, we did some work, and then we came back and then merged into master; we didn't do any additional work on master before doing the merge. Diagram below will make it more clear:
 
-![picture alt](resources/images/ "Fast Forward merge")
+![picture alt](resources/images/Fast_Forward_draw.png "Fast Forward merge")
 
 We can mention explicitly that we do not want fast-forward merge by adding __--no-ff__ in the merge command, then git will create it as merge commit.
 
@@ -307,7 +308,7 @@ We can mention explicitly that we do not want fast-forward merge by adding __--n
 
 Image below depicts how it is different from fast-forward merge.
 
-![picture alt](resources/images/ "Non Fast forward concept diagram")
+![picture alt](resources/images/NO_FF_diagram.png "Non Fast forward concept diagram")
 
 Just like commit command whenever you run merge command git will prompt you for log message using default editor configured with git, you either type the message there or you can mention the message in the command itself using:
 
@@ -317,7 +318,7 @@ Now if run `git log --oneline --graph --decorate -all` we can see that .........
 
 While merging some time conflicts can happen if two branches which you are trying to merge having changes in the same area of the same file. Git tries to do autmatically merge but fails becasue of the conflict, so we have to manually solve the conflicts.
 
-![picture alt](resources/images/ "Conflict concept diagram")
+![picture alt](resources/images/conflict_merge_draw.png "Conflict concept diagram")
 
 There are several tools to resolve the merge conflict like GitKraken, P4merge ,etc. even IDE's like visual Studio code have inbuilt functionality which helps developer to resolve the conflict.
 While you are resolving the conflicts you will be in Merging state, once you resolve the conflict you have to commit your changes using command git commit -m "any message to for log", and you will be back to normal state.
@@ -340,7 +341,7 @@ Rebasing is done if your parent branch is having some changes which are not pres
 
 What it will do is it will rewind the feature branch to accomodate the changes in master and then apply the changes in feature branch on top of it, this helps in fast forward merge.
 
-![picture alt](resources/images/ "Rebasing concept diagram")
+![picture alt](resources/images/rebasing_draw.png "Rebasing concept diagram")
 
 Like merging, during rebasing we can also encounter conflicts and we will be in rebase state, here we have two options:
 
