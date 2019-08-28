@@ -379,20 +379,15 @@ Now previously we used `git stash apply` and `git stash drop` for unstashing and
 
 __Multiple stash__
 
-git stash save
+Yes you read it right multiple stash is also possible just type `git stash save` whenever you want to stash anything, now when you run the command `git stash list` you will see all your stash at stacked one over other with starting index 0 which represents the latest stash.
 
-git stash show stash@{1}
+If you want to see a specific stash `git stash show stash@{1}` will help you, stash@{1} is reflog syntax that will allow us to reference to a specific stash. Similarly if you want to unstash a specific stash, you can do it with `git stash apply stash@{1}` and then `git stash drop stash@{1}` to dropit after use.
 
-stash@{1} is reflog syntax that will allow us to reference to a specific stash
+If you want to clear your stash stack, that is also possible just type `git stash clear`
 
-git stash apply stash@{1}
+__Stashing into Branch__
 
-git stash drop stash@{1}
-
-git stash clear - to clear all statshes
-
-git stash branch branchname
-
+Consider a situation where you performed a change in branch 'A' but you later realised it should to in different branch 'B', for that you have to do `git stash -u` to stash all the changes then the rest can be done using `git stash branch branchname`, this command will do multiple activities. First it will create branch with the specified branch name if that branch is not there, then it will switch to that branch and then our stash is applied and at the very end it is dropped.
 
 ## Tagging
 
