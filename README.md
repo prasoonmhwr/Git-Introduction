@@ -413,7 +413,11 @@ and it will tag the last commit with that tag name. now if you type `git tag --l
 
 __Tag with information__
 
-As we saw above light weighted tags are just a way to access any commit through names, there are also tags with information also known as annotated tags. To label a commit with annotated tag, first you have to run `git tag -a tag_name` after that git will prompt you with the default editor to type in the message. Now if you see the tag with `git show tag_name` you will see the difference between the light weighted tag and annotated tag.
+As we saw above light weighted tags are just a way to access any commit through names, there are also tags with information also known as annotated tags. To label a commit with annotated tag, first you have to run `git tag -a tag_name` after that git will prompt you with the default editor to type in the message. Now if you see the tag with `git show tag_name` you will see the difference between the light weighted tag and annotated tag. Annotated tag starts with the information but light-weighted tag directly starts with commit id. Images below will help you understand better.
+
+![picture alt](resources/images/showlw.png "Without info")
+
+![picture alt](resources/images/showann.png "With info")
 
 Like branches we can also compare the difference between tags with:
 
