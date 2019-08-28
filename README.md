@@ -418,5 +418,5 @@ Now lets move on to tagging a specific commit, just type `git tag -a tagname com
 
 > This is just an introduction to git to get you started for more detail you can check out the book at [git-scm.com/book](https://git-scm.com/book "git-scm.com/book")
 
-Cheers!!
+Cheers!!  
 Happy Learning
