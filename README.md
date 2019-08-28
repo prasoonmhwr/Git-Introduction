@@ -107,6 +107,8 @@ You can see that now our working directory is clean, our changes sits in the .gi
 
 Another way of committing is `git commit -am "log message"`, this technique is called __express commit__ using this you do not have to run `git add` but this only works for modified file, not for the new file or untracked file, for that you have to use git add. 
 
+Now if you want to change the commit message you can use `git commit --amend` and it will prompt you with default editor, so now just change the message and save & close the editor.
+
 __Backing Out Changes__
 
 Some times we accidentally commit our changes or we do not want those changes, so we can reset our commit using command `git reset HEAD filename`. Let's understand this using an example, first we will add a test file named 'test.txt' using `git add .`, if we now run `git status` it will show our file in green as it is added:
@@ -229,6 +231,10 @@ this command show the information about a specific commit, lets say we want to c
 ![picture alt](resources/images/showlog.png "show log")
 
 This will give you all the information about that specific commit like the author, date, what changes were made, etc.
+
+There is one more command `git reflog`, thiscommand is used for checking history, basically its not a history its the actual log of what we have done until now. The screenshot below will make it more clear.
+
+![picture alt](resources/images/ "reflog")
 
 __Alias__
 
@@ -391,8 +397,26 @@ Consider a situation where you performed a change in branch 'A' but you later re
 
 ## Tagging
 
+> Labeling commit in history
+
+Tagging is just adding label to any commit in history, lets start with a light weight tag, type the command
+
+`git tag tagname`
+
+and it will tag the last commit with that tag name. now if you type `git tag --list` it will show all the tags available. Also if you want to see want your tag is pointing to, you can do that by `git show mytag` and it will show the detail of that commit. Finally if you want to delete any tag just type `git tag --delete tag_name`.
+
+__Tag with information__
+
+As we saw above light weighted tags are just a way to access any commit through names, there are also tags with information also known as annotated tags. To label a commit with annotated tag, first you have to run `git tag -a tag_name` after that git will prompt you with the default editor to type in the message. Now if you see the tag with `git show tag_name` you will see the difference between the light weighted tag and annotated tag.
+
+Like branches we can also compare the difference between tags with:
+
+`git diff tag_name_1 tag_name_2`
+
+Now lets move on to tagging a specific commit, just type `git tag -a tagname commit_id` as it has '-a' so it will prompt you to type message/information. And you can also rename a tag just use the command `git tag -a tagname -f commit_id` '-f' forces the command to rename.
+
+
+> This is just an introduction to git to get you started for more detail you can check out the book at [git-scm.com/book](https://git-scm.com/book "git-scm.com/book")
 
 Cheers!!
 Happy Learning
-
-> This is just an introduction to git to get you started for more detail you can check out the book at [git-scm.com/book](https://git-scm.com/book "git-scm.com/book")
