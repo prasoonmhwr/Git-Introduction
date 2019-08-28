@@ -232,9 +232,9 @@ this command show the information about a specific commit, lets say we want to c
 
 This will give you all the information about that specific commit like the author, date, what changes were made, etc.
 
-There is one more command `git reflog`, thiscommand is used for checking history, basically its not a history its the actual log of what we have done until now. The screenshot below will make it more clear.
+There is one more command `git reflog`, this command is used for checking history, basically its not a history it's the actual log of what we have done until now. The screenshot below will make it more clear.
 
-![picture alt](resources/images/ "reflog")
+![picture alt](resources/images/reflog.png "reflog")
 
 __Alias__
 
@@ -383,6 +383,8 @@ Simple __git stash__ command will not stash the untracked file, so either we can
 
 Now previously we used `git stash apply` and `git stash drop` for unstashing and dropping the stash after use, but there is a command which this both action that is `git stash pop`.
 
+![picture alt](resources/images/stash_pop.png "stash Pop")
+
 __Multiple stash__
 
 Yes, you read it right multiple stashes is also possible just type `git stash save` whenever you want to stash anything, now when you run the command `git stash list` you will see all your stash at stacked one over other with starting index 0 which represents the latest stash.
@@ -403,9 +405,11 @@ Consider a situation where you performed a change in branch 'A' but you later re
 
 Tagging is just adding label to any commit in history, lets start with a light weight tag, type the command
 
-`git tag tagname`
+`git tag tag_name`
 
-and it will tag the last commit with that tag name. now if you type `git tag --list` it will show all the tags available. Also if you want to see want your tag is pointing to, you can do that by `git show mytag` and it will show the detail of that commit. Finally if you want to delete any tag just type `git tag --delete tag_name`.
+![picture alt](resources/images/tag.png "Adding tag")
+
+and it will tag the last commit with that tag name. now if you type `git tag --list` it will show all the tags available. Also if you want to see want your tag is pointing to, you can do that by `git show tag_name` and it will show the detail of that commit. Finally if you want to delete any tag just type `git tag --delete tag_name`.
 
 __Tag with information__
 
