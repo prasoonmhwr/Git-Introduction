@@ -387,6 +387,8 @@ __Multiple stash__
 
 Yes, you read it right multiple stashes is also possible just type `git stash save` whenever you want to stash anything, now when you run the command `git stash list` you will see all your stash at stacked one over other with starting index 0 which represents the latest stash.
 
+![picture alt](resources/images/stash_list.png "stash list")
+
 If you want to see a specific stash `git stash show stash@{1}` will help you, stash@{1} is reflog syntax that will allow us to refer to a specific stash. Similarly, if you want to unstash a specific stash, you can do it with `git stash apply stash@{1}` and then `git stash drop stash@{1}` to drop it after use.
 
 If you want to clear your stash stack, that is also possible just type `git stash clear`
